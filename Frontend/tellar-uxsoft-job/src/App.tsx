@@ -1,12 +1,14 @@
 import styles from "./App.module.css";
 import "./global.css";
 
+import { Header } from "./components/Header/Header";
+
 export function App() {
   return (
     <>
       <div className={styles.wrapper}>
-        <h1> Ave Maria! </h1>
-        <h1> Sacre cor Iesu</h1>
+        <Header />
+        <h1> teste teste </h1>
       </div>
     </>
   );
