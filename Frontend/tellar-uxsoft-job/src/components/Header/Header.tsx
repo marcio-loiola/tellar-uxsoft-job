@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 import { AppBar, Stack, Toolbar } from "@mui/material";
 import { styled } from "@mui/material/styles";
+
+import { SignInButton } from "../SignInButton/SignInButton";
 
 const HomeBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: "var(--green-color-500)",
@@ -26,6 +29,11 @@ const Text = styled(Typography)(({ theme }) => ({
   fontFamily: "Roboto",
   textDecoration: "none",
   component: "div",
+
+  "&:hover": {
+    color: "var(--secondary-color)",
+    textDecoration: "none",
+  },
 }));
 
 export function Header() {
@@ -36,15 +44,22 @@ export function Header() {
           Projeto Tellar e UX Software
         </Text>
         <Stack direction="row" spacing={2}>
+          <SignInButton />
+          {/* <Link to="/"> */}
           <Text variant="h6" sx={{ flexGrow: 1 }}>
             Login
           </Text>
+          {/* </Link> */}
+          {/* <Link to="/"> */}
           <Text variant="h6" sx={{ flexGrow: 1 }}>
             Projetos
           </Text>
+          {/*  </Link> */}
+          {/*  <Link to="/"> */}
           <Text variant="h6" sx={{ flexGrow: 1 }}>
             Usuários
           </Text>
+          {/*  </Link> */}
         </Stack>
       </Container>
     </HomeBar>
