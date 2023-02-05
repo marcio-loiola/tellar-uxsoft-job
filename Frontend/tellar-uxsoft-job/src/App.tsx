@@ -8,7 +8,6 @@ export function App() {
     <>
       <div className={styles.wrapper}>
         <Header />
-        <h1> teste teste </h1>
       </div>
     </>
   );

@@ -9,7 +9,7 @@
   --green-color-100: #0bb316;
   --green-color-500: #02940b;
   --green-color-900: #073515;
-  --background-gray: #e3e3e3;
+  --gray: #e3e3e3;
   --background-dark-gray: #333;
   --background-white: #fff;
   --text-color-white: #fff;
@@ -29,7 +29,7 @@
 
 body {
   background-color: var(--background-gray);
-  color: var(--primary-color);
+  color: var(--green-color-500);
   -webkit-font-smoothing: antialiased;
 }
 
