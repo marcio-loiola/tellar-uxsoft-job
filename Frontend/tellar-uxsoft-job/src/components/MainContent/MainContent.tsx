@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Typography, Paper } from "@mui/material";
+import { Box, Typography, Paper, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const Board = styled(Paper)(({ theme }) => ({
@@ -8,8 +8,13 @@ const Board = styled(Paper)(({ theme }) => ({
   color: "var(--gray)",
   width: "100vw",
   height: "100vh",
+  display: "flex",
+  flexFlow: "column wrap",
+  alignItems: "center",
   justifyContent: "center",
   minHeight: "64px",
+  padding: "0",
+  margin: "0",
 }));
 
 type Props = {
@@ -17,5 +22,9 @@ type Props = {
 };
 
 export function MainContent({ children }: Props) {
-  return <Board>{children}</Board>;
+  return (
+    <Stack spacing={2}>
+      <Board>{children}</Board>
+    </Stack>
+  );
 }

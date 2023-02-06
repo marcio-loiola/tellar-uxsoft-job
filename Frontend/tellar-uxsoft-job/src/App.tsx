@@ -1,20 +1,14 @@
 import styles from "./App.module.css";
 import "./global.css";
 
-import { Header } from "./components/Header/Header";
-import { Footer } from "./components/Footer/Footer";
-import { MainContent } from "./components/MainContent/MainContent";
-import { UserForms } from "./components/UserForms/UserForms";
+import UserRegister from "./pages/User/UserRegister";
+import Container from "@mui/material/Container";
 
 export function App() {
   return (
     <>
       <div className={styles.wrapper}>
-        <Header />
-        <MainContent>
-          <UserForms />
-        </MainContent>
-        <Footer />
+        <UserRegister />
       </div>
     </>
   );

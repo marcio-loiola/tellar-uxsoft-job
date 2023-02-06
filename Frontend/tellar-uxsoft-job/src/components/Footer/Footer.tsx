@@ -2,18 +2,21 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
+import { LogoDev } from "@mui/icons-material";
+import Icon from "@mui/material/Icon";
+
 const Container = styled(Box)(({ theme }) => ({
+  marginTop: "50rem",
   display: "flex",
   flexFlow: "row wrap",
-  justifyContent: "space-between",
-
-  padding: "30px 80px 31px 92px",
-  zIndex: 1201,
-
+  padding: 0,
+  margin: 0,
   backgroundColor: "var(--green-color-500)",
   color: "var(--gray)",
   width: "100vw",
-  height: "6vh",
+  height: "10rem",
+  justifyContent: "space-between",
+  alignItems: "center",
   minHeight: "64px",
 }));
 
@@ -31,18 +34,44 @@ const Text = styled(Typography)(({ theme }) => ({
   },
 }));
 
+const LogoContainer = styled(Box)({
+  display: "flex",
+  flexFlow: "column",
+  justifyContent: "center",
+});
+
+const InfoContainer = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexFlow: "column",
+  justifyContent: "center",
+  textAlign: "right",
+  gap: "8px",
+  padding: 0,
+  margin: 0,
+}));
+
 export function Footer() {
   return (
-    <Container>
-      <Text variant="h6" sx={{ flexGrow: 1 }}>
-        Projeto Tellar e UX Software
-      </Text>
-      <Text variant="h6" sx={{ flexGrow: 1 }}>
-        Dúvidas frequentes
-      </Text>
-      <Text variant="h6" sx={{ flexGrow: 1 }}>
-        Fale conosco
-      </Text>
+    <Container component="footer">
+      <LogoContainer>
+        <Text variant="h6" sx={{ flexGrow: 1 }}>
+          Tellar e UX Software
+        </Text>
+        <Icon>
+          <LogoDev />
+        </Icon>
+      </LogoContainer>
+      <InfoContainer>
+        <Text variant="h6" sx={{ flexGrow: 1 }}>
+          Dúvidas frequentes
+        </Text>
+        <Text variant="h6" sx={{ flexGrow: 1 }}>
+          Fale conosco
+        </Text>
+        <Text variant="h6" sx={{ flexGrow: 1 }}>
+          Desenvolvido por Márcio Loiola - 2023
+        </Text>
+      </InfoContainer>
     </Container>
   );
 }
