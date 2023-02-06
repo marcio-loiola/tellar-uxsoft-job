@@ -44,7 +44,6 @@ export function Header() {
           Projeto Tellar e UX Software
         </Text>
         <Stack direction="row" spacing={2}>
-          <SignInButton />
           {/* <Link to="/"> */}
           <Text variant="h6" sx={{ flexGrow: 1 }}>
             Login
