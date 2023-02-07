@@ -7,7 +7,10 @@ import { UserForms } from "../../components/UserForms/UserForms";
 import { UsersPaper } from "../../components/UsersPaper/UsersPaper";
 import { PanelHeader } from "../../components/PanelHeader/PanelHeader";
 
+import { HowToReg, ListAlt } from "@mui/icons-material";
+
 import { styled } from "@mui/material/styles";
+import { UserRegister } from "./Register/UserRegister";
 
 const RegisterContainer = styled(Container)(({ theme }) => ({
   padding: 0,
@@ -28,26 +31,14 @@ const RegisterContainer = styled(Container)(({ theme }) => ({
   },
 }));
 
-export default function UserRegister() {
+export default function UsersPanel() {
   return (
     <>
       <RegisterContainer>
         <Header />
         <MainContent>
-          <PanelHeader label="USUÁRIOS" user="José" />
-          {/* CRUD - CRIAR, LER, EDITAR E DELETAR USUÁRIOS */}
-          <Stack display="flex" flexDirection="row" sx={{ gap: "10rem" }}>
-            <UsersPaper
-              title="Cadastro"
-              description="Cadastre um novo usuário para acesso prévio a plataforma"
-            />
-            <UsersPaper
-              title="Listagem"
-              description="Verifique a lista de usuários, altere dados e exclua usuários inativos"
-            />
-          </Stack>
+          <UserRegister />
         </MainContent>
-        <Footer />
       </RegisterContainer>
     </>
   );

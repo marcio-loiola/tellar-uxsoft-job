@@ -19,7 +19,6 @@ const Text = styled(Typography)(() => ({
   component: "div",
 
   "&:hover": {
-    color: "var(--secondary-color-dark)",
     textDecoration: "none",
   },
 }));

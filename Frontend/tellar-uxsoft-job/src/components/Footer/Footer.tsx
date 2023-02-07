@@ -13,7 +13,7 @@ const Container = styled(Box)(({ theme }) => ({
   backgroundColor: "var(--green-color-500)",
   color: "var(--gray)",
   width: "100vw",
-  height: "20vh",
+  height: "15vh",
   justifyContent: "space-between",
   alignItems: "center",
   minHeight: "64px",
@@ -44,7 +44,7 @@ const InfoContainer = styled(Box)(({ theme }) => ({
   flexFlow: "column",
   justifyContent: "center",
   textAlign: "right",
-  gap: "8px",
+  gap: "0px",
   padding: 0,
   margin: 0,
 }));

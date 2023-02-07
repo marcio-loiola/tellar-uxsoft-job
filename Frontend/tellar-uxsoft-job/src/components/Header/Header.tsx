@@ -24,8 +24,8 @@ const Container = styled(Toolbar)(({ theme }) => ({
 
 const Text = styled(Typography)(({ theme }) => ({
   color: "var(--gray)",
-  fontSize: "1.5rem",
-  fontWeight: "bold",
+  fontSize: "1.2rem",
+  fontWeight: "500",
   fontFamily: "Roboto",
   textDecoration: "none",
   component: "div",

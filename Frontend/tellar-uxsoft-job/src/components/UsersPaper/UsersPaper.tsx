@@ -1,14 +1,15 @@
 import React from "react";
-import { Box, Typography, Paper, Stack } from "@mui/material";
+import { Box, Typography, Paper, Stack, SvgIcon } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 interface IUsersPapersProps {
   title: string;
   description: string;
+  icon: React.ReactNode;
 }
 
 const Board = styled(Paper)(({ theme }) => ({
-  backgroundColor: " #e3e3e3",
+  backgroundColor: " #f2f2f2",
   color: "var(--secondary-color-dark)",
   width: "20rem",
   height: "15rem",
@@ -21,10 +22,10 @@ const Board = styled(Paper)(({ theme }) => ({
   margin: "0",
 }));
 
-const Text = styled(Typography)(({ theme }) => ({
+const TitleText = styled(Typography)(({ theme }) => ({
   color: "var(--green-color-100)",
-  fontSize: "1.5rem",
-  fontWeight: "bold",
+  fontSize: "2.2rem",
+  fontWeight: "500",
   fontFamily: "Roboto",
   textDecoration: "none",
   component: "div",
@@ -35,13 +36,42 @@ const Text = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export function UsersPaper({ title, description }: IUsersPapersProps) {
+const Text = styled(Typography)(({ theme }) => ({
+  color: "var(--green-color-100)",
+  fontSize: "1.5rem",
+  fontWeight: "300",
+  fontFamily: "Roboto",
+  textDecoration: "none",
+  component: "div",
+
+  "&:hover": {
+    textDecoration: "none",
+  },
+}));
+
+const Icon = styled(SvgIcon)(({ theme }) => ({
+  color: "var(--secondary-color-dark)",
+  fontSize: "3rem",
+  fontWeight: "bold",
+  fontFamily: "Roboto",
+  textDecoration: "none",
+  component: "div",
+}));
+
+export function UsersPaper({ icon, title, description }: IUsersPapersProps) {
   return (
     <Board>
-      <Stack>
-        <Text variant="h3" sx={{ fontSize: "3rem" }}>
-          {title}
-        </Text>
+      <Stack
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          textAlign: "center",
+          alignItems: "center",
+        }}
+      >
+        <Icon>{icon}</Icon>
+        <TitleText variant="h3">{title}</TitleText>
         <Text variant="h3">{description}</Text>
       </Stack>
     </Board>
