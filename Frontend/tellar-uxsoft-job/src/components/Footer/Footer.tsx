@@ -68,7 +68,7 @@ export function Footer() {
           Fale conosco
         </Text>
         <Text variant="h6" sx={{ flexGrow: 1 }}>
-          Desenvolvido por Márcio Loiola - 2023
+          Desenvolvido por Márcio Loiola - J.M.J.T -2023
         </Text>
       </InfoContainer>
     </Container>

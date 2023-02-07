@@ -1,15 +1,16 @@
 import React from "react";
 
-import { Box, Typography, Paper, Stack } from "@mui/material";
+import { Box, Typography, Paper, Stack, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const Board = styled(Paper)(({ theme }) => ({
-  backgroundColor: "var(--gray)",
+  display: "flex",
+  flexFlow: "column wrap",
+  backgroundColor: "var(--gray-100)",
   color: "var(--gray)",
   width: "100vw",
   height: "80vh",
-  display: "flex",
-  flexFlow: "column wrap",
+  gap: "10rem",
   alignItems: "center",
   justifyContent: "center",
   minHeight: "64px",
