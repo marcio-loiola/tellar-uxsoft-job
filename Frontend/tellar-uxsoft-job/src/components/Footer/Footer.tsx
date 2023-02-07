@@ -6,15 +6,14 @@ import { LogoDev } from "@mui/icons-material";
 import Icon from "@mui/material/Icon";
 
 const Container = styled(Box)(({ theme }) => ({
-  marginTop: "50rem",
   display: "flex",
   flexFlow: "row wrap",
-  padding: 0,
+  padding: "1.5rem",
   margin: 0,
   backgroundColor: "var(--green-color-500)",
   color: "var(--gray)",
   width: "100vw",
-  height: "10rem",
+  height: "20vh",
   justifyContent: "space-between",
   alignItems: "center",
   minHeight: "64px",
@@ -55,10 +54,10 @@ export function Footer() {
     <Container component="footer">
       <LogoContainer>
         <Text variant="h6" sx={{ flexGrow: 1 }}>
-          Tellar e UX Software
+          Projeto Tellar e UX Software
         </Text>
         <Icon>
-          <LogoDev />
+          <LogoDev fontSize="large" />
         </Icon>
       </LogoContainer>
       <InfoContainer>

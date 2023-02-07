@@ -8,7 +8,7 @@ import { UserForms } from "../../components/UserForms/UserForms";
 import { styled } from "@mui/material/styles";
 
 const RegisterContainer = styled(Container)(({ theme }) => ({
-  pading: "1rem",
+  padding: 0,
   margin: 0,
   display: "flex",
   flexFlow: "column",
@@ -17,16 +17,23 @@ const RegisterContainer = styled(Container)(({ theme }) => ({
   minHeight: "100vh",
   width: "100vw",
   height: "100vh",
+
+  "@media (min-width: 600px)": {
+    width: "100%",
+    height: "100vh",
+    padding: 0,
+    margin: 0,
+  },
 }));
 
 export default function UserRegister() {
   return (
     <>
       <RegisterContainer>
-        {/* <Header />
+        <Header />
         <MainContent>
           <UserForms />
-        </MainContent> */}
+        </MainContent>
         <Footer />
       </RegisterContainer>
     </>

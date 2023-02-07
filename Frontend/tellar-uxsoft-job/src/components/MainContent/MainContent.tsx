@@ -7,7 +7,7 @@ const Board = styled(Paper)(({ theme }) => ({
   backgroundColor: "var(--gray)",
   color: "var(--gray)",
   width: "100vw",
-  height: "100vh",
+  height: "80vh",
   display: "flex",
   flexFlow: "column wrap",
   alignItems: "center",
@@ -23,7 +23,7 @@ type Props = {
 
 export function MainContent({ children }: Props) {
   return (
-    <Stack spacing={2}>
+    <Stack>
       <Board>{children}</Board>
     </Stack>
   );

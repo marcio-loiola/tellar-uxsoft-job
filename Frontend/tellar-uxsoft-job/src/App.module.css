@@ -1,7 +1,6 @@
 .wrapper {
   max-width: max-content;
-  margin: 0rem;
-  padding: 0rem;
+
   width: 70rem;
   height: 100vh;
   display: flex;

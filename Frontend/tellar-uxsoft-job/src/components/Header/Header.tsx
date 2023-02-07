@@ -10,7 +10,7 @@ const HomeBar = styled(AppBar)(({ theme }) => ({
   backgroundColor: "var(--green-color-500)",
   color: "var(--gray)",
   width: "100vw",
-  height: "6vh",
+  height: "10vh",
   justifyContent: "center",
   minHeight: "64px",
 }));
