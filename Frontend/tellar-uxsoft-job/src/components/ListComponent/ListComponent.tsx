@@ -11,15 +11,6 @@ interface IListComponentProps {
   icon: React.ReactNode;
 }
 
-const Item = styled(ListItem)(({ theme }) => ({
-  backgroundColor: " #f2f2f2",
-  color: "var(--green-color-100)",
-  width: "30vw",
-  height: "5rem",
-  borderRadius: "0.5rem",
-  border: "1px solid var(--green-color-100)",
-}));
-
 const userOptions = [
   {
     title: "Márcio Bruno Loiola Gomes - xxx.xxx.623-33",
@@ -39,6 +30,15 @@ const userOptions = [
   },
 ];
 
+const Item = styled(ListItem)(({ theme }) => ({
+  backgroundColor: " #f2f2f2",
+  color: "var(--green-color-100)",
+  width: "100%",
+  height: "5rem",
+  borderRadius: "0.5rem",
+  border: "1px solid var(--green-color-100)",
+}));
+
 const TitleText = styled(Typography)(({ theme }) => ({
   color: "var(--green-color-100)",
   fontSize: "2.2rem",
@@ -46,6 +46,7 @@ const TitleText = styled(Typography)(({ theme }) => ({
   fontFamily: "Roboto",
   textDecoration: "none",
   component: "div",
+  margin: "0.8rem 0",
 
   "&:hover": {
     color: "var(--secondary-color-dark)",
@@ -54,34 +55,72 @@ const TitleText = styled(Typography)(({ theme }) => ({
 }));
 
 const ListContainer = styled(Stack)(({ theme }) => ({
-  color: "var(--secondary-color-dark)",
+  color: "var(--primary-color)",
   display: "flex",
   flexFlow: "column wrap",
   alignItems: "center",
   justifyContent: "center",
   minHeight: "64px",
-  gap: "1.2rem",
+  gap: "1.5rem",
+
   padding: "0",
   margin: "0",
 }));
 
+const IconContainer = styled(Box)(({ theme }) => ({
+  color: "var(--green-color-100)",
+  display: "flex",
+  flexFlow: "row wrap",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "1rem",
+  padding: "0",
+  margin: "0.7rem",
+}));
+
+const EditIconStyles = {
+  color: "var(--green-color-100)",
+  "&:hover": {
+    textDecoration: "none",
+    color: "#fac638",
+  },
+};
+
+const PersonIconStyles = {
+  color: "#ffbb00",
+  "&:hover": {
+    textDecoration: "none",
+    color: "#ffbb00",
+  },
+};
+
+const DeleteIconStyles = {
+  color: "var(--green-color-100)",
+  "&:hover": {
+    textDecoration: "none",
+    color: "var(--secondary-color-dark)",
+  },
+};
+
 export function ListComponent() {
   return (
     <List>
+      <TitleText variant="h4"> Lista de usuários cadastrados </TitleText>
       <ListContainer>
-        <TitleText variant="h4"> Lista de usuários cadastrados </TitleText>
         {userOptions.map((userOptions) => (
           <Item>
             <ListItemIcon>
-              <SvgIcon>{userOptions.icon}</SvgIcon>
+              <SvgIcon sx={PersonIconStyles}>{userOptions.icon}</SvgIcon>
             </ListItemIcon>
             <ListItemText primary={userOptions.title} />
-            <SvgIcon>
-              <Edit />
-            </SvgIcon>
-            <SvgIcon>
-              <Clear />
-            </SvgIcon>
+            <IconContainer>
+              <SvgIcon sx={EditIconStyles}>
+                <Edit />
+              </SvgIcon>
+              <SvgIcon sx={DeleteIconStyles}>
+                <Clear />
+              </SvgIcon>
+            </IconContainer>
           </Item>
         ))}
       </ListContainer>

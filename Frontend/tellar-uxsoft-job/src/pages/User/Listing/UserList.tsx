@@ -10,6 +10,8 @@ export function UserList() {
     <Stack
       display="flex"
       flexDirection="column"
+      alignContent="center"
+      justifyContent="center"
       sx={{
         padding: "5rem",
       }}
