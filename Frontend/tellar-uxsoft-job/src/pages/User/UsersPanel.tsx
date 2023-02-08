@@ -11,6 +11,7 @@ import { HowToReg, ListAlt } from "@mui/icons-material";
 
 import { styled } from "@mui/material/styles";
 import { UserRegister } from "./Register/UserRegister";
+import { UserList } from "./Listing/UserList";
 
 const RegisterContainer = styled(Container)(({ theme }) => ({
   padding: 0,
@@ -37,7 +38,7 @@ export default function UsersPanel() {
       <RegisterContainer>
         <Header />
         <MainContent>
-          <UserRegister />
+          <UserList />
         </MainContent>
       </RegisterContainer>
     </>
