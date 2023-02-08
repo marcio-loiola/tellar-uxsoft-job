@@ -1,10 +1,12 @@
 package com.marcioloiola.tellaruxsoftapi.core.controllers;
 
 
-import com.marcioloiola.tellaruxsoftapi.core.models.User;
+import com.marcioloiola.tellaruxsoftapi.core.models.PUser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.marcioloiola.tellaruxsoftapi.core.repositories.UserRepository;
 
 import java.util.List;
 
@@ -12,8 +14,11 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping
-    public List<User> listUsers() {
-        return List.of(new User());
+    public List<PUser> listUsers() {
+        return userRepository.findAll();
     }
 }
