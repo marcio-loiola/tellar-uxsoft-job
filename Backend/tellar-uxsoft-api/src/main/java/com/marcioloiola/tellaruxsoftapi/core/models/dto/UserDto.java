@@ -9,28 +9,19 @@ import java.util.UUID;
 public class UserDto {
 
     private UUID id;
-
     private String cpf;
-
     private String name;
-
     private String email;
-
     private String telefone;
-
     private String address;
-
     private String cep;
     private String cidade;
     private String bairro;
     private String complemento;
-
     private int numero;
-
-    public UserDto {
+    public UserDto() {
 
     }
-
     public UserDto (User user) {
         this.cpf = user.getCpf();
         this.name = user.getName();
@@ -43,7 +34,4 @@ public class UserDto {
         this.complemento = user.getComplemento();
         this.numero = user.getNumero();
     }
-
-
-
 }

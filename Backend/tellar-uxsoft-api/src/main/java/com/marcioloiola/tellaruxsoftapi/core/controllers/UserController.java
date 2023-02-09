@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import jakarta.validation.Valid;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/users")
@@ -25,11 +26,11 @@ public class UserController {
 
     @GetMapping
     public List<UserDto> listUsers() {
-        return userService.listUsers();
+        return userService.findAllUsers();
     }
 
     @GetMapping("/{id}")
-    public UserDto findUserById(@PathVariable("id") User id) {
+    public UserDto findUserById(@PathVariable("id") UUID id) {
         return userService.findUserById(id);
     }
 
