@@ -6,21 +6,22 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
-import com.marcioloiola.tellaruxsoftapi.core.models.PUser;
+import com.marcioloiola.tellaruxsoftapi.core.models.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<PUser, UUID> {
+public interface UserRepository extends JpaRepository<User, UUID> {
 
-    Optional<PUser> findByCpf(String cpf);
+    Optional<User> findByCpf(String cpf);
 
     Boolean existsByCpf(String cpf);
 
     Boolean existsByEmail(String email);
 
-    Optional<PUser> findByEmail(String email);
+    Optional<User> findByEmail(String email);
 
-    Boolean existsById (PUser id);
+    Boolean existsById (User id);
 
-    PUser deleteById (PUser id);
+    User deleteById (User id);
 
+    void deleteById(Long id);
 }

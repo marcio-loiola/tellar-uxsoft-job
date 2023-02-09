@@ -23,7 +23,7 @@ import jakarta.persistence.Entity;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PUser {
+public class User {
     @Id
     @Column(name = "id", updatable = false, unique = true, nullable = false)
     @GeneratedValue(generator = "UUID")
@@ -66,7 +66,7 @@ public class PUser {
 
     private int numero;
 
-    public PUser (String name, String cpf, String email, String password, String confirmPassword, String telefone, String address, String cep, String cidade, String bairro, String complemento, int numero) {
+    public User(String name, String cpf, String email, String password, String confirmPassword, String telefone, String address, String cep, String cidade, String bairro, String complemento, int numero) {
         this.name = name;
         this.email = email;
         this.password = password;
