@@ -33,16 +33,16 @@ public class User {
     )
     private UUID id;
 
-    @NotBlank( message = "error.nameNotBlank.message")
+    @NotBlank( message = "O nome não pode estar vazio")
     @Column(name = "nome", nullable = false)
     private String name;
 
-    @NotBlank(message = "error.invalidCPF.message")
-    @Size(min= 11, max = 14, message = "error.invalidCPF.message")
-    @CPF(message = "error.invalidCPF.message")
+    @NotBlank(message = "CPF Inválido")
+    @Size(min= 11, max = 14, message = "Número de CPF inválido")
+    @CPF(message = "CPF Inválido")
     @Column(name = "cpf", unique = true, nullable = false)
     private String cpf;
-    @NotBlank(message = "error.passwordNotBlank.message")
+    @NotBlank(message = "A senha não pode estar vazia")
     @Column( name = "senha", nullable = false)
 
     private String password;
@@ -50,8 +50,8 @@ public class User {
     @Transient
     private String confirmPassword;
 
-    @NotBlank( message = "error.emailNotBlank.message")
-    @Email( message = "error.emailInvalid.message")
+    @NotBlank( message = "Email não pode estar vazio")
+    @Email( message = "Email inválido")
     @Column(unique = true, nullable = false)
     private String email;
 

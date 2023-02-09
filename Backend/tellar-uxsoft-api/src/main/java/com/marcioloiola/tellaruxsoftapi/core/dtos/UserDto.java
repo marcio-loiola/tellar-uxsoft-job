@@ -1,4 +1,4 @@
-package com.marcioloiola.tellaruxsoftapi.core.models.dto;
+package com.marcioloiola.tellaruxsoftapi.core.dtos;
 
 import lombok.Data;
 import com.marcioloiola.tellaruxsoftapi.core.models.User;
@@ -23,6 +23,7 @@ public class UserDto {
 
     }
     public UserDto (User user) {
+        this.id = user.getId();
         this.cpf = user.getCpf();
         this.name = user.getName();
         this.email = user.getEmail();

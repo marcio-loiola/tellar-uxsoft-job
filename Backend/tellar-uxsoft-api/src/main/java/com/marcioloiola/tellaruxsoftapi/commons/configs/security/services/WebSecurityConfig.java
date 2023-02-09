@@ -1,4 +1,4 @@
-package com.marcioloiola.tellaruxsoftapi.commons.security;
+package com.marcioloiola.tellaruxsoftapi.commons.configs.security.services;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,8 @@ public class WebSecurityConfig {
 
     private final String[] REQUEST_PATTERNS_PERMIT_ALL = {
             "/users",
-            "/"
+            "/users/edit/{id}",
+            "/users/delete/{id}",
     };
 
     @Bean

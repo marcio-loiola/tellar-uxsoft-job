@@ -1,7 +1,7 @@
 package com.marcioloiola.tellaruxsoftapi.core.services;
 
 import com.marcioloiola.tellaruxsoftapi.core.models.User;
-import com.marcioloiola.tellaruxsoftapi.core.models.dto.UserDto;
+import com.marcioloiola.tellaruxsoftapi.core.dtos.UserDto;
 import com.marcioloiola.tellaruxsoftapi.core.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,7 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+
 
 
     public UserDto createUser(User user) {
@@ -45,6 +46,12 @@ public class UserService {
             return convertToDto(obj);
         }
         return null;
+    }
+
+    public void deleteUser(UUID id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+        }
     }
     
     public UserDto convertToDto(User user) {
