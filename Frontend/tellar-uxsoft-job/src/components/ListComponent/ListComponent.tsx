@@ -58,7 +58,7 @@ export function ListComponent() {
       <TitleText variant="h4"> Lista de usuários cadastrados </TitleText>
       <ListContainer>
         {item?.map((item: any) => {
-          return <Component item={item} />;
+          return <Component key={item.objectID} item={item} />;
         })}
       </ListContainer>
     </List>
