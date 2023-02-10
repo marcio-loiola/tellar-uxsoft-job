@@ -1,43 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Box, Typography, Paper, Stack, SvgIcon } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { List, ListItem, ListItemText, ListItemIcon } from "@mui/material";
 import { Person, Edit, Clear } from "@mui/icons-material";
 
-interface IListComponentProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-}
-
-const userOptions = [
-  {
-    title: "Márcio Bruno Loiola Gomes - xxx.xxx.623-33",
-    icon: <Person />,
-  },
-  {
-    title: "Vitória Maria de Sousa Liberato - xxx.xxx.623-33",
-    icon: <Person />,
-  },
-  {
-    title: "Caio Victor de Sousa Tomás - xxx.xxx.623-33",
-    icon: <Person />,
-  },
-  {
-    title: "Maria Vaneza dos Santos Nascimento - xxx.xxx.623-33",
-    icon: <Person />,
-  },
-];
-
-const Item = styled(ListItem)(({ theme }) => ({
-  backgroundColor: " #f2f2f2",
-  color: "var(--green-color-100)",
-  width: "100%",
-  height: "5rem",
-  borderRadius: "0.5rem",
-  border: "1px solid var(--green-color-100)",
-}));
+import api from "../../services/http/index";
+import { listItem as Component } from "../ListItem";
 
 const TitleText = styled(Typography)(({ theme }) => ({
   color: "var(--green-color-100)",
@@ -67,62 +36,30 @@ const ListContainer = styled(Stack)(({ theme }) => ({
   margin: "0",
 }));
 
-const IconContainer = styled(Box)(({ theme }) => ({
-  color: "var(--green-color-100)",
-  display: "flex",
-  flexFlow: "row wrap",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: "1rem",
-  padding: "0",
-  margin: "0.7rem",
-}));
-
-const EditIconStyles = {
-  color: "var(--green-color-100)",
-  "&:hover": {
-    textDecoration: "none",
-    color: "#fac638",
-  },
-};
-
-const PersonIconStyles = {
-  color: "#ffbb00",
-  "&:hover": {
-    textDecoration: "none",
-    color: "#ffbb00",
-  },
-};
-
-const DeleteIconStyles = {
-  color: "var(--green-color-100)",
-  "&:hover": {
-    textDecoration: "none",
-    color: "var(--secondary-color-dark)",
-  },
+type ListItem = {
+  name: string;
+  cpf: string;
+  setItem: (arg: string) => void;
 };
 
 export function ListComponent() {
+  const [item, setItem] = useState<ListItem[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.get("/users");
+      setItem(response?.data);
+    };
+    fetchData();
+  }, []);
+
   return (
     <List>
       <TitleText variant="h4"> Lista de usuários cadastrados </TitleText>
       <ListContainer>
-        {userOptions.map((userOptions) => (
-          <Item>
-            <ListItemIcon>
-              <SvgIcon sx={PersonIconStyles}>{userOptions.icon}</SvgIcon>
-            </ListItemIcon>
-            <ListItemText primary={userOptions.title} />
-            <IconContainer>
-              <SvgIcon sx={EditIconStyles}>
-                <Edit />
-              </SvgIcon>
-              <SvgIcon sx={DeleteIconStyles}>
-                <Clear />
-              </SvgIcon>
-            </IconContainer>
-          </Item>
-        ))}
+        {item?.map((item: any) => {
+          return <Component item={item} />;
+        })}
       </ListContainer>
     </List>
   );
