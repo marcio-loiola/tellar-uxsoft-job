@@ -18,7 +18,7 @@ public class UserDto {
     private String cidade;
     private String bairro;
     private String complemento;
-    private int numero;
+    private String numero;
     public UserDto() {
 
     }

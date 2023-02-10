@@ -10,10 +10,19 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
-    private final String[] REQUEST_PATTERNS_PERMIT_ALL = {
+    private final String[] REQUEST_USERS_PERMIT_ALL = {
             "/users",
             "/users/edit/{id}",
             "/users/delete/{id}",
+            "/projects",
+
+    };
+
+    private final String [] REQUEST_PROJECTS_PERMIT_ALL = {
+            "/projects",
+
+            "/projects/edit/{id}",
+            "/projects/delete/{id}",
     };
 
     @Bean
@@ -24,7 +33,8 @@ public class WebSecurityConfig {
                 .sessionManagement()
                 .and()
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers(REQUEST_PATTERNS_PERMIT_ALL).permitAll()
+                        .requestMatchers(REQUEST_USERS_PERMIT_ALL).permitAll()
+                        .requestMatchers(REQUEST_PROJECTS_PERMIT_ALL).permitAll()
                         .anyRequest().authenticated()
                 );
 

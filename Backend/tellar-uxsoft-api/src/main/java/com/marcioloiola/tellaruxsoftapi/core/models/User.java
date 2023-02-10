@@ -55,18 +55,25 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @NotBlank(message = "Telefone não pode estar vazio")
+    @Column(name = "telefone", nullable = false)
     private String telefone;
 
+    @NotBlank(message = "Endereço não pode estar vazio")
+    @Column(name = "endereco", nullable = false)
     private String address;
 
+    @NotBlank(message = "O projeto precisa ter um CEP")
+    @Size(min= 5, max = 8, message = "Número de CEP inválido")
+    @Column(name = "cep", nullable = false)
     private String cep;
     private String cidade;
     private String bairro;
     private String complemento;
 
-    private int numero;
+    private String numero;
 
-    public User(String name, String cpf, String email, String password, String confirmPassword, String telefone, String address, String cep, String cidade, String bairro, String complemento, int numero) {
+    public User(String name, String cpf, String email, String password, String confirmPassword, String telefone, String address, String cep, String cidade, String bairro, String complemento, String numero) {
         this.name = name;
         this.email = email;
         this.password = password;

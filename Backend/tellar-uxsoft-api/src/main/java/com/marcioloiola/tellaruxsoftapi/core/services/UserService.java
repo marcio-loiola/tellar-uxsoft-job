@@ -18,20 +18,21 @@ public class UserService {
     UserRepository userRepository;
 
 
-
     public UserDto createUser(User user) {
         user = userRepository.save(user);
         return convertToDto(user);
     }
 
-    public List<UserDto> findAllUsers(){
+    public List<UserDto> findAllUsers() {
         List<User> users = userRepository.findAll();
         return convertListToDto(users);
     }
+
     public UserDto findUserById(UUID id) {
         Optional<User> optional = userRepository.findById(id);
         return optional.map(this::convertToDto).orElse(null);
     }
+
     public UserDto updateById(User userForm, UUID id) {
         Optional<User> op = userRepository.findById(id);
         if (op.isPresent()) {
@@ -42,6 +43,34 @@ public class UserService {
             if (userForm.getEmail() != null) {
                 obj.setEmail(userForm.getEmail());
             }
+            if (userForm.getCpf() != null) {
+                obj.setCpf(userForm.getCpf());
+            }
+
+            if (userForm.getAddress() != null) {
+                obj.setAddress(userForm.getAddress());
+            }
+            if (userForm.getComplemento() != null) {
+                obj.setComplemento(userForm.getComplemento());
+            }
+            if (userForm.getCep() != null) {
+                obj.setCep(userForm.getCep());
+            }
+            if (userForm.getTelefone() != null) {
+                obj.setTelefone(userForm.getTelefone());
+            }
+            if (userForm.getCidade() != null) {
+                obj.setCidade(userForm.getCidade());
+            }
+
+            if (userForm.getNumero() != null) {
+                obj.setNumero(userForm.getNumero());
+            }
+            if (userForm.getBairro() != null) {
+                obj.setBairro(userForm.getBairro());
+            }
+
+
             userRepository.save(obj);
             return convertToDto(obj);
         }
@@ -53,7 +82,7 @@ public class UserService {
             userRepository.deleteById(id);
         }
     }
-    
+
     public UserDto convertToDto(User user) {
         UserDto userDto = new UserDto();
         userDto.setId(user.getId());
